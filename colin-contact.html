@@ -36,6 +36,7 @@
       display: flex; justify-content: space-between; align-items: center;
       padding: 1.4rem 3rem;
       background: rgba(30,58,47,0.95);
+      -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(122,171,138,0.12);
     }
@@ -218,6 +219,7 @@
       border-radius: 2px;
       font-size: 0.75rem; letter-spacing: 0.06em;
       color: var(--muted); cursor: pointer;
+      transition: all 0.15s; -webkit-user-select: none;
       transition: all 0.15s; user-select: none;
       background: transparent;
       font-family: 'DM Sans', sans-serif;
@@ -309,7 +311,7 @@
           </div>
         </a>
 
-        <a href="https://linkedin.com/in/colin-norstad" target="_blank" class="direct-link">
+        <a href="https://linkedin.com/in/colin-norstad"> target="_blank" class="direct-link">
           <div class="direct-link-icon">💼</div>
           <div>
             <div class="direct-link-label">LinkedIn</div>

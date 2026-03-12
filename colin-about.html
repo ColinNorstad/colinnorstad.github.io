@@ -36,6 +36,7 @@
       display: flex; justify-content: space-between; align-items: center;
       padding: 1.4rem 3rem;
       background: rgba(245,240,232,0.9);
+      -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(61,107,82,0.12);
     }
@@ -83,6 +84,7 @@
       color: rgba(122,171,138,0.06);
       line-height: 1;
       pointer-events: none;
+      -webkit-user-select: none;
       user-select: none;
     }
 
@@ -627,7 +629,7 @@
   <div class="cta-links">
     <a href="colin-work.html" class="btn-primary">See my work →</a>
     <a href="/cdn-cgi/l/email-protection#9dfef2f1f4f3f3f2efeee9fcf9ddfaf0fcf4f1b3fef2f0" class="btn-outline">Send me an email</a>
-    <a href="https://linkedin.com/in/colin-norstad" class="btn-outline" target="_blank">LinkedIn</a>
+    <a href="https://linkedin.com/in/colin-norstad" class="btn-outline" target="_blank" rel="noopener noreferrer">LinkedIn</a>
   </div>
 </div>
 
@@ -635,15 +637,28 @@
 <footer>
   <div class="footer-name">Colin Norstad</div>
   <div class="footer-links">
-    <a href="https://www.linkedin.com/in/colin-norstad" target="_blank">LinkedIn</a>
+    <a href="https://www.linkedin.com/in/colin-norstad" target="_blank" rel="noopener noreferrer"> LinkedIn</a>
     <a href="/cdn-cgi/l/email-protection#a6c5c9cacfc8c8c9d4d5d2c7c2e6c1cbc7cfca88c5c9cb">Email</a>
     <a href="Colin_Norstad_Resume.pdf" target="_blank">Resume</a>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // Scroll-triggered fade-in for story sections
   const sections = document.querySelectorAll('.story-section');
+
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isInterse
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.15
+  });
+
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+</script>
