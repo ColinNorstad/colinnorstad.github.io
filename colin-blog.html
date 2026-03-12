@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog — Colin Norstad</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --forest:  #1e3a2f;
+      --moss:    #3d6b52;
+      --sage:    #7aab8a;
+      --cream:   #f5f0e8;
+      --warm:    #ede8dc;
+      --amber:   #c8792a;
+      --sand:    #d9cdb8;
+      --ink:     #1a1a18;
+      --muted:   #6b6458;
+    }
+    html, body { height: 100%; }
+    body {
+      background: var(--forest);
+      color: var(--cream);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+    }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.4rem 3rem;
+      background: rgba(30,58,47,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(122,171,138,0.1);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem; letter-spacing: 0.04em;
+      color: var(--cream); font-style: italic; text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: rgba(245,240,232,0.45);
+      font-size: 0.82rem; letter-spacing: 0.12em;
+      text-transform: uppercase; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--amber); }
+    .nav-links a.active { color: var(--amber); }
+
+    .main {
+      flex: 1;
+      display: flex; align-items: center; justify-content: center;
+      padding: 8rem 4rem 4rem;
+      position: relative; overflow: hidden;
+    }
+
+    /* topo lines */
+    .topo {
+      position: absolute; inset: 0; opacity: 0.07; pointer-events: none;
+    }
+
+    /* large decorative B */
+    .main::before {
+      content: 'B';
+      position: absolute; right: -1rem; top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Playfair Display', serif;
+      font-size: 40rem; font-weight: 900;
+      color: rgba(122,171,138,0.04);
+      line-height: 1; pointer-events: none;
+    }
+
+    .content {
+      position: relative; z-index: 1;
+      max-width: 600px; text-align: center;
+    }
+
+    .eyebrow {
+      font-size: 0.72rem; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--amber);
+      margin-bottom: 1.5rem;
+      display: flex; align-items: center; justify-content: center; gap: 0.8rem;
+    }
+    .eyebrow::before, .eyebrow::after {
+      content: ''; display: block;
+      width: 2rem; height: 1px; background: var(--amber);
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 900; line-height: 1.0;
+      margin-bottom: 2rem;
+    }
+    h1 em { font-style: italic; color: var(--sage); }
+
+    .sub {
+      font-size: 1.05rem; line-height: 1.8;
+      color: rgba(245,240,232,0.5);
+      margin-bottom: 3rem; max-width: 44ch; margin-left: auto; margin-right: auto;
+    }
+
+    /* teaser topics */
+    .topics {
+      display: flex; flex-wrap: wrap;
+      gap: 0.6rem; justify-content: center;
+      margin-bottom: 3rem;
+    }
+    .topic {
+      padding: 0.5rem 1.1rem;
+      border: 1px solid rgba(122,171,138,0.2);
+      border-radius: 2px;
+      font-size: 0.78rem; letter-spacing: 0.06em;
+      color: rgba(245,240,232,0.45);
+    }
+    .topic.highlight {
+      border-color: rgba(200,121,42,0.4);
+      color: var(--amber);
+    }
+
+    .notify-wrap {
+      display: flex; gap: 0.6rem; max-width: 420px;
+      margin: 0 auto;
+    }
+    .notify-input {
+      flex: 1;
+      background: rgba(255,255,255,0.06);
+      border: 1.5px solid rgba(122,171,138,0.2);
+      border-radius: 3px;
+      padding: 0.8rem 1rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem; font-weight: 300;
+      color: var(--cream); outline: none;
+      transition: border-color 0.2s;
+    }
+    .notify-input::placeholder { color: rgba(245,240,232,0.25); }
+    .notify-input:focus { border-color: var(--amber); }
+    .notify-btn {
+      background: var(--amber); color: var(--cream);
+      border: none; border-radius: 3px;
+      padding: 0.8rem 1.4rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem; letter-spacing: 0.1em;
+      text-transform: uppercase; cursor: pointer;
+      transition: background 0.2s, transform 0.15s; flex-shrink: 0;
+    }
+    .notify-btn:hover { background: var(--moss); transform: translateY(-2px); }
+
+    .notify-note {
+      font-size: 0.72rem; color: rgba(245,240,232,0.25);
+      margin-top: 0.8rem;
+    }
+
+    footer {
+      padding: 2rem 4rem;
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 1rem;
+      border-top: 1px solid rgba(122,171,138,0.08);
+    }
+    .footer-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem; font-style: italic;
+      color: rgba(245,240,232,0.25);
+    }
+    .footer-links { display: flex; gap: 2rem; }
+    .footer-links a {
+      font-size: 0.72rem; letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.2);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--amber); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Colin Norstad</a>
+  <ul class="nav-links">
+    <li><a href="colin-about.html">About</a></li>
+    <li><a href="colin-work.html">Work</a></li>
+    <li><a href="colin-life.html">Life</a></li>
+    <li><a href="colin-blog.html" class="active">Blog</a></li>
+    <li><a href="colin-contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<main class="main">
+  <svg class="topo" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <path d="M-100,200 Q300,130 600,210 T1300,175" fill="none" stroke="#7aab8a" stroke-width="1.5"/>
+    <path d="M-100,320 Q280,240 580,325 T1300,290" fill="none" stroke="#7aab8a" stroke-width="1.5"/>
+    <path d="M-100,440 Q320,355 620,445 T1300,410" fill="none" stroke="#7aab8a" stroke-width="1.5"/>
+    <path d="M-100,560 Q300,470 600,560 T1300,525" fill="none" stroke="#7aab8a" stroke-width="1.5"/>
+  </svg>
+
+  <div class="content">
+    <div class="eyebrow">Coming soon</div>
+    <h1>Words are<br><em>incoming.</em></h1>
+    <p class="sub">The blog is where I think out loud — about solar energy, building things, engineering teams, and whatever else is worth writing about. It's not ready yet, but it will be.</p>
+
+    <div class="topics">
+      <div class="topic highlight">☀️ Solar energy</div>
+      <div class="topic">What I learned building a gantry</div>
+      <div class="topic highlight">🏗️ Engineering & building</div>
+      <div class="topic">Lessons from leading trips</div>
+      <div class="topic">On choosing Human-Centered Engineering</div>
+      <div class="topic highlight">🌏 Notes from Singapore</div>
+    </div>
+
+    <div class="notify-wrap">
+      <input type="email" class="notify-input" placeholder="your@email.com" id="notify-email"/>
+      <button class="notify-btn" onclick="handleNotify()">Notify me</button>
+    </div>
+    <p class="notify-note" id="notify-note">I'll send one email when the first post is live. That's it.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-name">Colin Norstad</div>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/colin-norstad" target="_blank">LinkedIn</a>
+    <a href="mailto:colinnorstad@gmail.com">Email</a>
+  </div>
+</footer>
+
+<script>
+  function handleNotify() {
+    const email = document.getElementById('notify-email').value;
+    if (!email || !email.includes('@')) {
+      document.getElementById('notify-email').style.borderColor = 'var(--amber)';
+      return;
+    }
+    document.getElementById('notify-email').style.borderColor = 'var(--sage)';
+    document.getElementById('notify-note').textContent = '✓ You\'re on the list.';
+    document.getElementById('notify-email').value = '';
+  }
+</script>
+
+</body>
+</html>
