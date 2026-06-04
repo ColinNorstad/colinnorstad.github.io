@@ -4,19 +4,19 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Blog — Colin Norstad</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --forest:  #1e3a2f;
-      --moss:    #3d6b52;
-      --sage:    #7aab8a;
-      --cream:   #f5f0e8;
-      --warm:    #ede8dc;
-      --amber:   #c8792a;
-      --sand:    #d9cdb8;
-      --ink:     #1a1a18;
-      --muted:   #6b6458;
+      --forest: #1e3a2f;
+      --moss:   #3d6b52;
+      --sage:   #7aab8a;
+      --cream:  #f5f0e8;
+      --warm:   #ede8dc;
+      --amber:  #c8792a;
+      --sand:   #d9cdb8;
+      --ink:    #1a1a18;
+      --muted:  #6b6458;
     }
     html, body { height: 100%; }
     body {
@@ -25,105 +25,89 @@
       font-family: 'DM Sans', sans-serif;
       font-weight: 300;
       min-height: 100vh;
-      display: flex; flex-direction: column;
+      display: flex;
+      flex-direction: column;
     }
 
+    /* NAV */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; justify-content: space-between; align-items: center;
-      padding: 1.4rem 3rem;
+      padding: 1.25rem 3rem;
       background: rgba(30,58,47,0.95);
-      -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(122,171,138,0.1);
     }
     .nav-logo {
       font-family: 'Playfair Display', serif;
-      font-size: 1.15rem; letter-spacing: 0.04em;
-      color: var(--cream); font-style: italic; text-decoration: none;
+      font-size: 1.05rem; color: var(--cream);
+      font-style: italic; text-decoration: none;
     }
-    .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a {
       text-decoration: none; color: rgba(245,240,232,0.45);
-      font-size: 0.82rem; letter-spacing: 0.12em;
+      font-size: 0.78rem; letter-spacing: 0.1em;
       text-transform: uppercase; transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--amber); }
-    .nav-links a.active { color: var(--amber); }
+    .nav-links a:hover, .nav-links a.active { color: var(--amber); }
 
+    /* MAIN */
     .main {
       flex: 1;
       display: flex; align-items: center; justify-content: center;
       padding: 8rem 4rem 4rem;
-      position: relative; overflow: hidden;
-    }
-
-    /* topo lines */
-    .topo {
-      position: absolute; inset: 0; opacity: 0.07; pointer-events: none;
-    }
-
-    /* large decorative B */
-    .main::before {
-      content: 'B';
-      position: absolute; right: -1rem; top: 50%;
-      transform: translateY(-50%);
-      font-family: 'Playfair Display', serif;
-      font-size: 40rem; font-weight: 900;
-      color: rgba(122,171,138,0.04);
-      line-height: 1; pointer-events: none;
     }
 
     .content {
-      position: relative; z-index: 1;
-      max-width: 600px; text-align: center;
+      max-width: 560px;
+      text-align: center;
     }
 
     .eyebrow {
-      font-size: 0.72rem; letter-spacing: 0.22em;
+      font-size: 0.7rem; letter-spacing: 0.22em;
       text-transform: uppercase; color: var(--amber);
       margin-bottom: 1.5rem;
-      display: flex; align-items: center; justify-content: center; gap: 0.8rem;
-    }
-    .eyebrow::before, .eyebrow::after {
-      content: ''; display: block;
-      width: 2rem; height: 1px; background: var(--amber);
     }
 
     h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(3rem, 8vw, 6rem);
+      font-size: clamp(3rem, 7vw, 5.5rem);
       font-weight: 900; line-height: 1.0;
-      margin-bottom: 2rem;
+      margin-bottom: 1.8rem;
     }
     h1 em { font-style: italic; color: var(--sage); }
 
     .sub {
-      font-size: 1.05rem; line-height: 1.8;
+      font-size: 1.02rem; line-height: 1.8;
       color: rgba(245,240,232,0.5);
-      margin-bottom: 3rem; max-width: 44ch; margin-left: auto; margin-right: auto;
+      margin-bottom: 3rem;
+      max-width: 42ch;
+      margin-left: auto; margin-right: auto;
     }
 
-    /* teaser topics */
+    /* topic tags */
     .topics {
       display: flex; flex-wrap: wrap;
-      gap: 0.6rem; justify-content: center;
+      gap: 0.5rem; justify-content: center;
       margin-bottom: 3rem;
     }
     .topic {
-      padding: 0.5rem 1.1rem;
-      border: 1px solid rgba(122,171,138,0.2);
+      padding: 0.45rem 1rem;
+      border: 1px solid rgba(122,171,138,0.18);
       border-radius: 2px;
-      font-size: 0.78rem; letter-spacing: 0.06em;
-      color: rgba(245,240,232,0.45);
+      font-size: 0.78rem; letter-spacing: 0.04em;
+      color: rgba(245,240,232,0.4);
     }
-    .topic.highlight {
-      border-color: rgba(200,121,42,0.4);
+    .topic.hl {
+      border-color: rgba(200,121,42,0.35);
       color: var(--amber);
     }
 
+    /* notify form */
     .notify-wrap {
-      display: flex; gap: 0.6rem; max-width: 420px;
+      display: flex; gap: 0.5rem;
+      max-width: 400px;
       margin: 0 auto;
     }
     .notify-input {
@@ -149,12 +133,13 @@
       transition: background 0.2s, transform 0.15s; flex-shrink: 0;
     }
     .notify-btn:hover { background: var(--moss); transform: translateY(-2px); }
-
     .notify-note {
-      font-size: 0.72rem; color: rgba(245,240,232,0.25);
+      font-size: 0.72rem;
+      color: rgba(245,240,232,0.25);
       margin-top: 0.8rem;
     }
 
+    /* FOOTER */
     footer {
       padding: 2rem 4rem;
       display: flex; justify-content: space-between;
@@ -163,17 +148,23 @@
     }
     .footer-name {
       font-family: 'Playfair Display', serif;
-      font-size: 1rem; font-style: italic;
+      font-size: 0.95rem; font-style: italic;
       color: rgba(245,240,232,0.25);
     }
     .footer-links { display: flex; gap: 2rem; }
     .footer-links a {
-      font-size: 0.72rem; letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(245,240,232,0.2);
+      font-size: 0.72rem; letter-spacing: 0.1em;
+      text-transform: uppercase; color: rgba(245,240,232,0.2);
       text-decoration: none; transition: color 0.2s;
     }
     .footer-links a:hover { color: var(--amber); }
+
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.2rem; }
+      .main { padding: 7rem 2rem 3rem; }
+      footer { padding: 1.5rem 2rem; }
+    }
   </style>
 </head>
 <body>
@@ -190,25 +181,18 @@
 </nav>
 
 <main class="main">
-  <svg class="topo" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-    <path d="M-100,200 Q300,130 600,210 T1300,175" fill="none" stroke="#7aab8a" stroke-width="1.5"/>
-    <path d="M-100,320 Q280,240 580,325 T1300,290" fill="none" stroke="#7aab8a" stroke-width="1.5"/>
-    <path d="M-100,440 Q320,355 620,445 T1300,410" fill="none" stroke="#7aab8a" stroke-width="1.5"/>
-    <path d="M-100,560 Q300,470 600,560 T1300,525" fill="none" stroke="#7aab8a" stroke-width="1.5"/>
-  </svg>
-
   <div class="content">
     <div class="eyebrow">Coming soon</div>
     <h1>Words are<br><em>incoming.</em></h1>
-    <p class="sub">The blog is where I think out loud — about solar energy, building things, engineering teams, and whatever else is worth writing about. It's not ready yet, but it will be.</p>
+    <p class="sub">The blog is where I think out loud — about solar energy, building things, engineering, and whatever else is worth writing about. Not ready yet, but it will be.</p>
 
     <div class="topics">
-      <div class="topic highlight">☀️ Solar energy</div>
-      <div class="topic">What I learned building a gantry</div>
-      <div class="topic highlight">🏗️ Engineering & building</div>
-      <div class="topic">Lessons from leading trips</div>
+      <div class="topic hl">☀️ Solar energy</div>
+      <div class="topic">Building a gantry from scratch</div>
+      <div class="topic hl">🏗️ Engineering & building</div>
+      <div class="topic">What leading trips taught me</div>
       <div class="topic">On choosing Human-Centered Engineering</div>
-      <div class="topic highlight">🌏 Notes from Singapore</div>
+      <div class="topic hl">🌏 Notes from Singapore</div>
     </div>
 
     <div class="notify-wrap">
@@ -222,7 +206,7 @@
 <footer>
   <div class="footer-name">Colin Norstad</div>
   <div class="footer-links">
-    <a href="https://www.linkedin.com/in/colin-norstad" target="_blank" rel="noopener noreferrer"> LinkedIn</a>
+    <a href="https://www.linkedin.com/in/colin-norstad" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     <a href="mailto:colinnorstad@gmail.com">Email</a>
   </div>
 </footer>
@@ -239,6 +223,5 @@
     document.getElementById('notify-email').value = '';
   }
 </script>
-
 </body>
 </html>

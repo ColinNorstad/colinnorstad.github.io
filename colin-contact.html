@@ -4,24 +4,21 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact — Colin Norstad</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --forest:  #1e3a2f;
-      --moss:    #3d6b52;
-      --sage:    #7aab8a;
-      --cream:   #f5f0e8;
-      --warm:    #ede8dc;
-      --amber:   #c8792a;
-      --sand:    #d9cdb8;
-      --ink:     #1a1a18;
-      --muted:   #6b6458;
+      --forest: #1e3a2f;
+      --moss:   #3d6b52;
+      --sage:   #7aab8a;
+      --cream:  #f5f0e8;
+      --warm:   #ede8dc;
+      --amber:  #c8792a;
+      --sand:   #d9cdb8;
+      --ink:    #1a1a18;
+      --muted:  #6b6458;
     }
-
     html, body { height: 100%; }
-
     body {
       background: var(--cream);
       color: var(--ink);
@@ -30,30 +27,30 @@
       overflow-x: hidden;
     }
 
-    /* ── NAV ── */
+    /* NAV */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; justify-content: space-between; align-items: center;
-      padding: 1.4rem 3rem;
-      background: rgba(30,58,47,0.95);
-      -webkit-backdrop-filter: blur(10px);
+      padding: 1.25rem 3rem;
+      background: rgba(30,58,47,0.96);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(122,171,138,0.12);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(122,171,138,0.1);
     }
     .nav-logo {
       font-family: 'Playfair Display', serif;
-      font-size: 1.15rem; letter-spacing: 0.04em;
-      color: var(--cream); font-style: italic; text-decoration: none;
+      font-size: 1.05rem; color: var(--cream);
+      font-style: italic; text-decoration: none;
     }
-    .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a {
-      text-decoration: none; color: rgba(245,240,232,0.5);
-      font-size: 0.82rem; letter-spacing: 0.12em;
+      text-decoration: none; color: rgba(245,240,232,0.45);
+      font-size: 0.78rem; letter-spacing: 0.1em;
       text-transform: uppercase; transition: color 0.2s;
     }
     .nav-links a:hover, .nav-links a.active { color: var(--amber); }
 
-    /* ── FULL PAGE LAYOUT ── */
+    /* PAGE LAYOUT */
     .contact-page {
       min-height: 100vh;
       display: grid;
@@ -63,131 +60,98 @@
     /* LEFT — dark panel */
     .contact-left {
       background: var(--forest);
-      padding: 10rem 4rem 4rem;
-      display: flex; flex-direction: column; justify-content: space-between;
-      position: relative; overflow: hidden;
+      padding: 9rem 4rem 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
-
-    /* big decorative C */
-    .contact-left::before {
-      content: 'C';
-      position: absolute; right: -2rem; bottom: -4rem;
-      font-family: 'Playfair Display', serif;
-      font-size: 28rem; font-weight: 900;
-      color: rgba(122,171,138,0.05);
-      line-height: 1; pointer-events: none;
-    }
-
-    /* topo lines */
-    .topo {
-      position: absolute; inset: 0; opacity: 0.06; pointer-events: none;
-    }
-
-    .left-content { position: relative; z-index: 1; }
-
-    .left-eyebrow {
-      font-size: 0.72rem; letter-spacing: 0.22em;
-      text-transform: uppercase; color: var(--amber);
-      margin-bottom: 1.2rem;
-      display: flex; align-items: center; gap: 0.8rem;
-    }
-    .left-eyebrow::before {
-      content: ''; display: block;
-      width: 2rem; height: 1px; background: var(--amber);
-    }
-
     .left-content h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
       font-weight: 900; color: var(--cream);
-      line-height: 1.05; margin-bottom: 2rem;
+      line-height: 1.05; margin-bottom: 1.5rem;
     }
     .left-content h1 em { font-style: italic; color: var(--sage); }
-
     .left-content p {
       font-size: 1rem; line-height: 1.8;
       color: rgba(245,240,232,0.5);
-      max-width: 36ch; margin-bottom: 3rem;
+      max-width: 34ch; margin-bottom: 2.5rem;
     }
 
-    /* direct contact links */
-    .direct-links { display: flex; flex-direction: column; gap: 1rem; }
-
+    /* direct links */
+    .direct-links { display: flex; flex-direction: column; gap: 0.8rem; }
     .direct-link {
       display: flex; align-items: center; gap: 1rem;
       text-decoration: none;
-      padding: 1rem 1.2rem;
-      border: 1px solid rgba(122,171,138,0.15);
+      padding: 0.9rem 1.1rem;
+      border: 1px solid rgba(122,171,138,0.12);
       border-radius: 3px;
       transition: border-color 0.2s, background 0.2s, transform 0.2s;
     }
     .direct-link:hover {
       border-color: var(--amber);
-      background: rgba(200,121,42,0.06);
+      background: rgba(200,121,42,0.05);
       transform: translateX(4px);
     }
     .direct-link-icon {
-      width: 36px; height: 36px;
-      background: rgba(122,171,138,0.1);
+      width: 34px; height: 34px;
+      background: rgba(122,171,138,0.09);
       border-radius: 3px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 1rem; flex-shrink: 0;
-      transition: background 0.2s;
+      font-size: 0.95rem; flex-shrink: 0;
     }
-    .direct-link:hover .direct-link-icon { background: rgba(200,121,42,0.15); }
     .direct-link-label {
-      font-size: 0.7rem; letter-spacing: 0.14em;
+      font-size: 0.65rem; letter-spacing: 0.14em;
       text-transform: uppercase; color: var(--sage);
-      margin-bottom: 0.15rem;
+      margin-bottom: 0.1rem;
     }
     .direct-link-value {
-      font-size: 0.9rem; color: var(--cream); font-weight: 400;
+      font-size: 0.88rem; color: var(--cream); font-weight: 400;
     }
 
-    /* bottom name */
     .left-bottom {
-      position: relative; z-index: 1;
-      padding-top: 3rem;
+      padding-top: 2.5rem;
       border-top: 1px solid rgba(122,171,138,0.1);
     }
     .left-bottom-name {
       font-family: 'Playfair Display', serif;
-      font-size: 0.95rem; font-style: italic;
-      color: rgba(245,240,232,0.25);
+      font-size: 0.9rem; font-style: italic;
+      color: rgba(245,240,232,0.22);
     }
 
-    /* RIGHT — form panel */
+    /* RIGHT — form */
     .contact-right {
       background: var(--cream);
-      padding: 10rem 4rem 4rem;
-      display: flex; flex-direction: column; justify-content: center;
+      padding: 9rem 4rem 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .form-heading {
       font-family: 'Playfair Display', serif;
-      font-size: 1.6rem; font-weight: 700;
-      color: var(--forest); margin-bottom: 0.5rem;
+      font-size: 1.55rem; font-weight: 700;
+      color: var(--forest); margin-bottom: 0.4rem;
     }
     .form-heading em { font-style: italic; color: var(--amber); }
     .form-sub {
       font-size: 0.88rem; color: var(--muted);
-      margin-bottom: 2.5rem; line-height: 1.6;
+      margin-bottom: 2.2rem; line-height: 1.6;
     }
 
-    /* form fields */
-    .form-group { margin-bottom: 1.4rem; }
+    .form-group { margin-bottom: 1.3rem; }
     .form-label {
       display: block;
-      font-size: 0.68rem; letter-spacing: 0.16em;
+      font-size: 0.65rem; letter-spacing: 0.16em;
       text-transform: uppercase; color: var(--muted);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.45rem;
     }
     .form-input, .form-textarea {
       width: 100%;
       background: var(--warm);
       border: 1.5px solid transparent;
       border-radius: 3px;
-      padding: 0.85rem 1rem;
+      padding: 0.8rem 0.95rem;
       font-family: 'DM Sans', sans-serif;
       font-size: 0.95rem; font-weight: 300;
       color: var(--ink);
@@ -199,28 +163,28 @@
       border-color: var(--amber);
       background: #fff;
     }
-    .form-input::placeholder, .form-textarea::placeholder {
-      color: var(--sand);
-    }
-    .form-textarea {
-      resize: vertical; min-height: 130px; line-height: 1.6;
-    }
-
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-input::placeholder, .form-textarea::placeholder { color: var(--sand); }
+    .form-textarea { resize: vertical; min-height: 120px; line-height: 1.6; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
 
     /* subject chips */
+    .chip-label {
+      font-size: 0.65rem; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--muted);
+      margin-bottom: 0.55rem; display: block;
+    }
     .subject-chips {
-      display: flex; flex-wrap: wrap; gap: 0.5rem;
-      margin-bottom: 1.4rem;
+      display: flex; flex-wrap: wrap; gap: 0.45rem;
+      margin-bottom: 1.3rem;
     }
     .subject-chip {
-      padding: 0.4rem 0.9rem;
+      padding: 0.38rem 0.85rem;
       border: 1.5px solid var(--sand);
       border-radius: 2px;
-      font-size: 0.75rem; letter-spacing: 0.06em;
+      font-size: 0.75rem; letter-spacing: 0.04em;
       color: var(--muted); cursor: pointer;
-      transition: all 0.15s; -webkit-user-select: none;
-      transition: all 0.15s; user-select: none;
+      transition: all 0.15s;
+      -webkit-user-select: none; user-select: none;
       background: transparent;
       font-family: 'DM Sans', sans-serif;
     }
@@ -231,44 +195,48 @@
       color: var(--cream);
     }
 
-    .chip-label {
-      font-size: 0.68rem; letter-spacing: 0.16em;
-      text-transform: uppercase; color: var(--muted);
-      margin-bottom: 0.6rem; display: block;
-    }
-
     .btn-submit {
       width: 100%;
       background: var(--forest);
       color: var(--cream);
       border: none; border-radius: 3px;
-      padding: 1rem;
+      padding: 0.95rem;
       font-family: 'DM Sans', sans-serif;
-      font-size: 0.82rem; letter-spacing: 0.14em;
+      font-size: 0.8rem; letter-spacing: 0.14em;
       text-transform: uppercase; cursor: pointer;
       transition: background 0.2s, transform 0.15s;
-      margin-top: 0.5rem;
+      margin-top: 0.4rem;
     }
     .btn-submit:hover { background: var(--amber); transform: translateY(-2px); }
-
     .form-note {
       font-size: 0.75rem; color: var(--sand);
-      text-align: center; margin-top: 1rem;
-      line-height: 1.5;
+      text-align: center; margin-top: 0.9rem; line-height: 1.5;
     }
 
-    /* success state */
+    /* success */
     .form-success {
       display: none;
       text-align: center; padding: 3rem 2rem;
     }
-    .form-success-icon { font-size: 3rem; margin-bottom: 1rem; }
+    .form-success-icon { font-size: 2.8rem; margin-bottom: 1rem; }
     .form-success h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.6rem; font-weight: 700;
+      font-size: 1.5rem; font-weight: 700;
       color: var(--forest); margin-bottom: 0.5rem;
     }
     .form-success p { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .contact-page { grid-template-columns: 1fr; }
+      .contact-left { padding: 7rem 2.5rem 3rem; min-height: auto; }
+      .contact-right { padding: 3rem 2.5rem 4rem; }
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.2rem; }
+    }
+    @media (max-width: 480px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -289,16 +257,7 @@
 
   <!-- LEFT -->
   <div class="contact-left">
-    <svg class="topo" viewBox="0 0 600 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-      <path d="M-50,200 Q150,140 350,210 T750,180" fill="none" stroke="#7aab8a" stroke-width="1.5"/>
-      <path d="M-50,300 Q180,230 380,305 T750,275" fill="none" stroke="#7aab8a" stroke-width="1.5"/>
-      <path d="M-50,400 Q160,330 360,405 T750,375" fill="none" stroke="#7aab8a" stroke-width="1.5"/>
-      <path d="M-50,500 Q200,425 400,505 T750,470" fill="none" stroke="#7aab8a" stroke-width="1.5"/>
-      <path d="M-50,600 Q170,525 370,605 T750,570" fill="none" stroke="#7aab8a" stroke-width="1.5"/>
-    </svg>
-
     <div class="left-content">
-      <div class="left-eyebrow">Get in touch</div>
       <h1>Let's<br><em>talk.</em></h1>
       <p>Internships, solar energy, engineering problems, or just a good conversation — my inbox is open.</p>
 
@@ -310,8 +269,7 @@
             <div class="direct-link-value">colinnorstad@gmail.com</div>
           </div>
         </a>
-
-        <a href="https://linkedin.com/in/colin-norstad"> target="_blank" class="direct-link">
+        <a href="https://www.linkedin.com/in/colin-norstad" target="_blank" rel="noopener noreferrer" class="direct-link">
           <div class="direct-link-icon">💼</div>
           <div>
             <div class="direct-link-label">LinkedIn</div>
@@ -338,7 +296,7 @@
 
     <div id="contact-form-wrap">
       <div class="form-heading">Send a <em>message.</em></div>
-      <p class="form-sub">Fill out the form and I'll get back to you promptly.</p>
+      <p class="form-sub">Fill out the form and I'll get back to you.</p>
 
       <span class="chip-label">I'm reaching out about</span>
       <div class="subject-chips">
@@ -392,14 +350,17 @@
     const inputs = document.querySelectorAll('.form-input, .form-textarea');
     let valid = true;
     inputs.forEach(i => {
-      if (!i.value.trim()) { i.style.borderColor = 'var(--amber)'; valid = false; }
-      else { i.style.borderColor = 'transparent'; }
+      if (!i.value.trim()) {
+        i.style.borderColor = 'var(--amber)';
+        valid = false;
+      } else {
+        i.style.borderColor = 'transparent';
+      }
     });
     if (!valid) return;
     document.getElementById('contact-form-wrap').style.display = 'none';
     document.getElementById('form-success').style.display = 'block';
   }
 </script>
-
 </body>
 </html>
