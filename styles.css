@@ -347,3 +347,8 @@ h3 { font-size: 1.25rem; font-weight: 700; }
 .proof.section { padding-top: 2.5rem; padding-bottom: 2.5rem; }
 .proof .stats { margin-top: 0; }
 .stat b small { font-size: 1rem; font-weight: 700; }
+
+/* ── LIFE: two-photo posts ── */
+.life-item.wide .life-photos { width: 50%; display: grid; gap: 3px; flex-shrink: 0; }
+.life-item.wide .life-photos img, .life-photos img { width: 100%; min-height: 0; height: 100%; aspect-ratio: 16/10; object-fit: cover; }
+@media (max-width: 900px) { .life-item.wide .life-photos { width: 100%; } }
