@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Automated Research Gantry — Case Study | Colin Norstad</title>
+<meta name="description" content="How Colin Norstad designed and built an automated gantry with CAD, Arduino, Raspberry Pi, and Python to collect indoor-positioning data for machine-learning research.">
+<meta name="theme-color" content="#1e3a2f">
+<link rel="canonical" href="https://colinnorstad.github.io/project-gantry.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Colin Norstad">
+<meta property="og:title" content="Automated Research Gantry — Case Study | Colin Norstad">
+<meta property="og:description" content="How Colin Norstad designed and built an automated gantry with CAD, Arduino, Raspberry Pi, and Python to collect indoor-positioning data for machine-learning research.">
+<meta property="og:url" content="https://colinnorstad.github.io/project-gantry.html">
+<meta property="og:image" content="https://colinnorstad.github.io/images/portrait.jpg">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-nav">
+  <a class="nav-logo" href="index.html">Colin Norstad</a>
+  <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+  <nav aria-label="Main">
+  <ul class="nav-links" id="nav-links">
+    <li><a href="projects.html" aria-current="page">Projects</a></li>
+    <li><a href="colin-work.html">Experience</a></li>
+    <li><a href="colin-about.html">About</a></li>
+    <li><a href="colin-life.html">Life</a></li>
+    <li><a href="colin-contact.html">Contact</a></li>
+    <li><a class="nav-cta" href="Colin_Norstad_Resume.pdf" target="_blank" rel="noopener">Résumé</a></li>
+  </ul>
+  </nav>
+</header>
+<main id="main">
+<section class="page-hero">
+  <svg class="topo" viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g fill="none" stroke="#7aab8a" stroke-width="1.5"><path d="M-100,200 Q200,140 500,210 T1300,180"/><path d="M-100,260 Q250,190 550,265 T1300,240"/><path d="M-100,320 Q220,255 520,325 T1300,300"/><path d="M-100,380 Q260,310 560,385 T1300,360"/><path d="M-100,440 Q230,370 530,445 T1300,420"/></g></svg>
+  <div class="wrap">
+    <p class="crumb"><a href="projects.html">← All projects</a></p>
+    <div class="eyebrow">Case study</div>
+    <h1>Automated <em>gantry</em> for indoor-positioning research</h1>
+    <p class="lede">Designed and built a remote-controlled gantry that sweeps a photodetector across a precise grid, replacing hours of manual placement and feeding the machine-learning models behind the lab's indoor-positioning work.</p>
+    <dl class="case-meta">
+      <div><dt>Role</dt><dd>Designer &amp; builder</dd></div>
+      <div><dt>Timeline</dt><dd>Oct 2023 – Present</dd></div>
+      <div><dt>Where</dt><dd>Boston College, Govindasamy Lab</dd></div>
+      <div><dt>Tools</dt><dd>CAD, Arduino, Raspberry Pi, Python, ML</dd></div>
+    </dl>
+  </div>
+</section>
+<section class="section">
+  <article class="case prose">
+    <h2>The problem</h2>
+    <p>The Govindasamy Lab studies <strong>indoor positioning</strong>: working out where something is inside a building from the light a photodetector sees. Training reliable models takes a lot of measurements at precisely known positions. Collecting them meant moving a photodetector to hundreds of coordinates by hand, which took hours and added human error to the data.</p>
+
+    <h2>What I built</h2>
+    <p>I designed and built a remote-controlled gantry from scratch that carries the photodetector across a defined grid and records a reading at each point.</p>
+    <ul>
+      <li><strong>Mechanical:</strong> designed the frame and moving carriage in CAD, then built and assembled it.</li>
+      <li><strong>Electrical:</strong> soldered and wired the circuitry, using an <strong>Arduino</strong> and a <strong>Raspberry Pi</strong> to drive and coordinate the system.</li>
+      <li><strong>Software:</strong> integrated open-source databases and APIs in <strong>Python</strong> to control the gantry and photodetector so a full grid sweep runs automatically.</li>
+    </ul>
+    <figure>
+      <div class="figure-art"><svg viewBox="0 0 280 300" role="img" aria-label="Diagram of the gantry: a frame with a moving crossbar, motor carriage and a photodetector hanging over a grid of data points">
+<rect x="20" y="40" width="240" height="8" rx="4" fill="#7aab8a" opacity=".9"/><rect x="20" y="252" width="240" height="8" rx="4" fill="#7aab8a" opacity=".9"/>
+<rect x="20" y="40" width="8" height="220" rx="4" fill="#7aab8a" opacity=".7"/><rect x="252" y="40" width="8" height="220" rx="4" fill="#7aab8a" opacity=".7"/>
+<rect x="10" y="255" width="18" height="40" rx="3" fill="#3d6b52"/><rect x="252" y="255" width="18" height="40" rx="3" fill="#3d6b52"/>
+<rect x="28" y="115" width="224" height="10" rx="5" fill="#c8792a" opacity=".85"/>
+<rect x="118" y="100" width="44" height="38" rx="4" fill="#2d4a3a" stroke="#7aab8a" stroke-width="1.5"/>
+<rect x="126" y="107" width="28" height="24" rx="3" fill="#1e3a2f" stroke="#3d6b52"/><circle cx="140" cy="119" r="6" fill="#c8792a" opacity=".8"/><circle cx="140" cy="119" r="3" fill="#e8a050"/>
+<line x1="140" y1="138" x2="140" y2="185" stroke="#3d6b52" stroke-width="2" stroke-dasharray="4,3"/>
+<rect x="128" y="185" width="24" height="20" rx="4" fill="#2d4a3a" stroke="#7aab8a" stroke-width="1.5"/><circle cx="140" cy="195" r="5" fill="#c8d8e8" opacity=".9"/>
+<g opacity=".2" stroke="#7aab8a" stroke-width=".8"><line x1="55" y1="258" x2="55" y2="295"/><line x1="90" y1="258" x2="90" y2="295"/><line x1="125" y1="258" x2="125" y2="295"/><line x1="160" y1="258" x2="160" y2="295"/><line x1="195" y1="258" x2="195" y2="295"/><line x1="230" y1="258" x2="230" y2="295"/><line x1="28" y1="268" x2="252" y2="268"/><line x1="28" y1="282" x2="252" y2="282"/></g>
+<g fill="#c8792a" opacity=".75"><circle cx="55" cy="268" r="3"/><circle cx="90" cy="282" r="3"/><circle cx="125" cy="268" r="3"/><circle cx="160" cy="282" r="3"/><circle cx="195" cy="268" r="3"/><circle cx="230" cy="282" r="3"/></g>
+<text x="140" y="25" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" fill="#7aab8a" letter-spacing="2">GANTRY SYSTEM</text>
+</svg></div>
+      <figcaption>Simplified schematic of the system: a moving crossbar and carriage position the photodetector over a grid of measurement points.</figcaption>
+    </figure>
+
+    <h2>Using the data</h2>
+    <p>With consistent, automated collection, the lab could train <strong>machine-learning models</strong> on much larger and cleaner datasets than hand placement allowed, and use them to build statistically significant positioning models.</p>
+
+    <div class="callout"><h3>What I learned</h3><p>Hardware and software are harder to connect than any class suggests. Building something physical that has to talk to code meant thinking across the whole stack.</p></div>
+
+  </article>
+  <nav class="case-nav" aria-label="More projects">
+    <a class="text-link" href="projects.html">← All projects</a>
+    <a class="text-link" href="project-blueprint-dashboard.html">CDMO spend dashboard →</a>
+  </nav>
+</section>
+</main>
+<section class="cta-band">
+  <div class="wrap">
+    <div><h2>Want to talk through this one?</h2><p>I'm glad to go deeper on the design decisions, the data, and what I'd change.</p></div>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="mailto:colinnorstad@gmail.com">Email me</a>
+      <a class="btn btn-secondary" href="Colin_Norstad_Resume.pdf" target="_blank" rel="noopener" style="color:var(--cream);border-color:rgba(245,240,232,.45)">Résumé (PDF)</a>
+      <a class="btn btn-secondary" href="https://www.linkedin.com/in/colin-norstad" target="_blank" rel="noopener" style="color:var(--cream);border-color:rgba(245,240,232,.45)">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span class="footer-name">Colin Norstad</span>
+    <ul class="footer-links">
+      <li><a href="mailto:colinnorstad@gmail.com">Email</a></li>
+      <li><a href="https://www.linkedin.com/in/colin-norstad" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="Colin_Norstad_Resume.pdf" target="_blank" rel="noopener">Résumé</a></li>
+      <li><a href="projects.html">Projects</a></li>
+    </ul>
+  </div>
+</footer>
+<script src="site.js"></script>
+</body>
+</html>
