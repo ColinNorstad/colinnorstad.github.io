@@ -364,3 +364,6 @@ h3 { font-size: 1.25rem; font-weight: 700; }
 .toast.show { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }
 .toast a { color: var(--amber); font-weight: 500; text-decoration: underline; text-underline-offset: 3px; }
 @media print { .toast { display: none; } }
+
+/* ── CASE STUDY PHOTOS ── */
+.case figure img { height: auto; }

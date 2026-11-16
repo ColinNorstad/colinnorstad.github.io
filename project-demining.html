@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Underwater De-mining Platform, Case Study | Colin Norstad</title>
+<meta name="description" content="Case study: a team of five built a low-cost towable sonar and camera platform for finding underwater explosive ordnance, for a UNDP challenge. Colin owned system integration and field testing.">
+<meta name="theme-color" content="#1e3a2f">
+<link rel="canonical" href="https://colinnorstad.github.io/project-demining.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Colin Norstad">
+<meta property="og:title" content="Underwater De-mining Platform, Case Study | Colin Norstad">
+<meta property="og:description" content="Case study: a team of five built a low-cost towable sonar and camera platform for finding underwater explosive ordnance, for a UNDP challenge. Colin owned system integration and field testing.">
+<meta property="og:url" content="https://colinnorstad.github.io/project-demining.html">
+<meta property="og:image" content="https://colinnorstad.github.io/images/portrait.jpg">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-nav">
+  <a class="nav-logo" href="index.html">Colin Norstad</a>
+  <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+  <nav aria-label="Main">
+  <ul class="nav-links" id="nav-links">
+    <li><a href="projects.html" aria-current="page">Projects</a></li>
+    <li><a href="colin-work.html">Experience</a></li>
+    <li><a href="colin-about.html">About</a></li>
+    <li><a href="colin-life.html">Life</a></li>
+    <li><a href="colin-contact.html">Contact</a></li>
+    <li><a class="nav-cta" href="Colin_Norstad_Resume.pdf" target="_blank" rel="noopener">Résumé</a></li>
+  </ul>
+  </nav>
+</header>
+<main id="main">
+<section class="page-hero">
+  <svg class="topo" viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g fill="none" stroke="#7aab8a" stroke-width="1.5"><path d="M-100,200 Q200,140 500,210 T1300,180"/><path d="M-100,260 Q250,190 550,265 T1300,240"/><path d="M-100,320 Q220,255 520,325 T1300,300"/><path d="M-100,380 Q260,310 560,385 T1300,360"/><path d="M-100,440 Q230,370 530,445 T1300,420"/></g></svg>
+  <div class="wrap">
+    <p class="crumb"><a href="projects.html">← All projects</a></p>
+    <div class="eyebrow">Case study</div>
+    <h1>Low-cost underwater <em>de-mining</em> platform</h1>
+    <p class="lede">With a team of five, I built a towable underwater platform with sonar and a camera, designed to help communities find and mark underwater explosive ordnance for under $5,000. I owned system integration and field testing.</p>
+    <dl class="case-meta">
+      <div><dt>Role</dt><dd>Team member, systems integration and testing</dd></div>
+      <div><dt>Timeline</dt><dd>Spring 2026</dd></div>
+      <div><dt>Where</dt><dd>Boston College, ENGR3100 capstone</dd></div>
+      <div><dt>Tools</dt><dd>Sonar, soldering, 3D printing, Fusion 360</dd></div>
+    </dl>
+  </div>
+</section>
+<section class="section">
+  <article class="case prose">
+    <h2>The problem</h2>
+    <p>Underwater explosive ordnance affects at least 64 countries. Remotely operated vehicles and professional sonar can find it, but they are too expensive and too complex for many of the communities living next to it. The UNDP ran an open innovation challenge asking for something affordable, safe, and simple enough for non-experts to use from a small boat.</p>
+
+    <h2>The requirements</h2>
+    <ul>
+      <li>Under <strong>$5,000</strong> per device, with a $3,000 goal.</li>
+      <li>One person can run it with minimal training.</li>
+      <li>Works fully offline, on battery power.</li>
+      <li>No active emissions that could set off ordnance.</li>
+      <li>Works in fresh and salt water.</li>
+    </ul>
+
+    <h2>What the team built</h2>
+    <p>A team of five built the system. It has three parts:</p>
+    <ul>
+      <li><strong>Towfish:</strong> a 3D-printed body coated in fiberglass and resin, with symmetrical airfoil wings set at a negative angle so towing pushes it down, a two-point bridle for pitch stability, and rear fins.</li>
+      <li><strong>Sensors:</strong> a Lowrance Elite FS side-scan sonar with GPS, plus an underwater camera with its own light.</li>
+      <li><strong>Software:</strong> an offline computer-vision model, fine-tuned from an open-source dataset of 1,139 labeled underwater ordnance images.</li>
+    </ul>
+    <figure>
+      <img src="images/demining-prototype.jpg" alt="The assembled towfish prototype lying on grass with sonar hardware, wiring, and a tow line attached" style="width:100%;max-width:420px;border-radius:4px" loading="lazy">
+      <figcaption>The assembled towfish prototype with the sonar hardware and tow line attached.</figcaption>
+    </figure>
+
+    <h2>My part: integration and testing</h2>
+    <ul>
+      <li><strong>Sonar:</strong> I soldered the wiring between the sonar and its battery, then tested and primed the sonar for use.</li>
+      <li><strong>Field test:</strong> I helped design the experiment, arranged the boat and the transport to the test site, and collected the data. The towfish was towed across a lake, with weighted and 3D-printed mine and shell shapes dropped in as dummy targets.</li>
+      <li><strong>Build support:</strong> I helped reinforce the towfish and ordered materials.</li>
+      <li><strong>Team:</strong> I organized meetings and kept the team focused, and I wrote the requirements and strategy chapter of the final report.</li>
+    </ul>
+    <figure>
+      <img src="images/demining-sonar.jpg" alt="The Lowrance sonar display and transducer on a bench, powered from a battery with clip leads" style="width:100%;max-width:420px;border-radius:4px" loading="lazy">
+      <figcaption>The sonar unit and transducer, powered from a battery.</figcaption>
+    </figure>
+
+    <h2>Who it's for</h2>
+    <p>Local communities and NGOs that don't have a specialist team. It is a prototype, and only the team has tested it.</p>
+
+    <h2>Result</h2>
+    <ul>
+      <li>The towfish <strong>submerged</strong> when towed at low speeds, as designed. Its center of mass sat below its center of buoyancy, the right setup for staying upright.</li>
+      <li>It is positively buoyant (about 227 N of buoyancy against 58 N of weight). The wings still pulled it under, so tow speed ends up controlling depth.</li>
+      <li>The system fits the <strong>$5,000</strong> cap, runs offline, and one person can deploy it.</li>
+      <li>Testing found a leak at the left wing joint, from running short of fiberglass sheeting. It caused light waterlogging and didn't affect performance.</li>
+      <li>The detection model is a first pass. It needs much more training data, especially sonar images, before anyone should rely on it.</li>
+    </ul>
+
+    <div class="callout"><h3>What I'd do next</h3><p>Shrink the towfish toward neutral buoyancy to cut drag. Once it dove, the person towing it said it became very hard to row. Then add training data, including sonar, and run proper waterproofing and 12-hour runtime tests.</p></div>
+
+  </article>
+  <nav class="case-nav" aria-label="More projects">
+    <a class="text-link" href="project-gantry.html">← Research gantry</a>
+    <a class="text-link" href="projects.html">All projects →</a>
+  </nav>
+</section>
+</main>
+<section class="cta-band">
+  <div class="wrap">
+    <div><h2>Want to talk through this one?</h2><p>I can go deeper on the decisions, the numbers, and what I'd change.</p></div>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="mailto:colinnorstad@gmail.com">Email me</a>
+      <a class="btn btn-secondary" href="Colin_Norstad_Resume.pdf" target="_blank" rel="noopener" style="color:var(--cream);border-color:rgba(245,240,232,.45)">Résumé (PDF)</a>
+      <a class="btn btn-secondary" href="https://www.linkedin.com/in/colin-norstad" target="_blank" rel="noopener" style="color:var(--cream);border-color:rgba(245,240,232,.45)">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span class="footer-name">Colin Norstad</span>
+    <ul class="footer-links">
+      <li><a href="mailto:colinnorstad@gmail.com">Email</a></li>
+      <li><a href="https://www.linkedin.com/in/colin-norstad" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="Colin_Norstad_Resume.pdf" target="_blank" rel="noopener">Résumé</a></li>
+      <li><a href="projects.html">Projects</a></li>
+    </ul>
+  </div>
+</footer>
+<script src="site.js"></script>
+</body>
+</html>
